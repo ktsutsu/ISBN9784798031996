@@ -2,9 +2,10 @@ package com.tsutsu.isbn9784798031996;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Editable;
 import android.view.Menu;
-import android.view.View;
-import android.widget.TextView;
+import android.view.*;
+import android.widget.*;
 
 public class MainActivity extends Activity {
 
@@ -21,7 +22,9 @@ public class MainActivity extends Activity {
     }
 
     public void doAction(View view) {
+    	EditText edit1 = (EditText)this.findViewById(R.id.editText1);
+    	Editable str = edit1.getText();
     	TextView text1 = (TextView)this.findViewById(R.id.textView1);
-    	text1.setText("OK!");
+    	text1.setText("You typed: " + str);
     }
 }
