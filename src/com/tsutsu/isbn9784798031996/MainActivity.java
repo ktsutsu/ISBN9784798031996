@@ -12,8 +12,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Activity activity = this;
-        CheckBox check1 = (CheckBox)this.findViewById(R.id.checkBox1);
-        check1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        ToggleButton toggle1 = (ToggleButton)this.findViewById(R.id.toggleButton1);
+        toggle1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				Toast toast = Toast.makeText(activity, "You checked: " + isChecked, Toast.LENGTH_SHORT);
