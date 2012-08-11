@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
     public void doAction(View view) {
     	EditText edit1 = (EditText)this.findViewById(R.id.editText1);
     	Editable str = edit1.getText();
-    	TextView text1 = (TextView)this.findViewById(R.id.textView1);
-    	text1.setText("You typed: " + str);
+    	Toast toast = Toast.makeText(this, "You typed: " + str, Toast.LENGTH_SHORT);
+    	toast.show();
     }
 }
