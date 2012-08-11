@@ -11,5 +11,15 @@
         android:text="@string/hello_world"
         tools:context=".MainActivity" />
 
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="39dp"
+        android:checked="true"
+        android:text="Checkbox" />
+
 </RelativeLayout>
