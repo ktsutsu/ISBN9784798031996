@@ -28,7 +28,12 @@ public class MainActivity extends Activity {
 			
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
-				text1.setText("value: " + progress);
+				if (!fromUser) {
+					return;
+				}
+				double dx = 10d;
+				int n = ((int)(java.lang.Math.round(progress / dx))) * 10;
+				text1.setText("value: " + n);
 			}
 		});
     }
