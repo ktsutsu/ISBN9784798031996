@@ -12,14 +12,14 @@
         android:text="@string/hello_world"
         tools:context=".MainActivity" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="21dp"
-        android:entries="@array/list1" />
+        android:layout_marginTop="66dp"
+        android:max="100"
+        android:progress="50" />
 
 </RelativeLayout>
