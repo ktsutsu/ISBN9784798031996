@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.*;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 
 public class MainActivity extends Activity {
 
@@ -14,8 +14,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         final Activity activity = this;
         Spinner spinner = (Spinner)this.findViewById(R.id.spinner1);
-        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
+        String[] items = {"One", "Two", "Three"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item, items);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				Spinner spinner = (Spinner)arg0;
