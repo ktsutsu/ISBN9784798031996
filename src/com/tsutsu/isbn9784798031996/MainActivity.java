@@ -3,7 +3,7 @@ package com.tsutsu.isbn9784798031996;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.*;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 
 public class MainActivity extends Activity {
 
@@ -12,28 +12,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Activity activity = this;
-        final TextView text1 = (TextView)this.findViewById(R.id.textView1);
-        SeekBar bar1 = (SeekBar)this.findViewById(R.id.seekBar1);
-        bar1.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+        RatingBar rate1 = (RatingBar)this.findViewById(R.id.ratingBar1);
+        rate1.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 			
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				Toast toast = Toast.makeText(activity, "Stop...", Toast.LENGTH_SHORT);
-				toast.show();
-			}
-			
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				Toast toast = Toast.makeText(activity, "Start!", Toast.LENGTH_SHORT);
-				toast.show();
-			}
-			
-			public void onProgressChanged(SeekBar seekBar, int progress,
+			public void onRatingChanged(RatingBar ratingBar, float rating,
 					boolean fromUser) {
-				if (!fromUser) {
-					return;
-				}
-				double dx = 10d;
-				int n = ((int)(java.lang.Math.round(progress / dx))) * 10;
-				text1.setText("value: " + n);
+				Toast toast = Toast.makeText(activity, "rate: " + rating, Toast.LENGTH_SHORT);
+				toast.show();
 			}
 		});
     }
