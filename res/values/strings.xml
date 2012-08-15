@@ -3,6 +3,7 @@
     <string name="app_name">ISBN9784798031996</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="button_label">Click me!</string>
-
+    <string name="button_label1">Number</string>
+    <string name="button_label2">Password</string>
+    
 </resources>
