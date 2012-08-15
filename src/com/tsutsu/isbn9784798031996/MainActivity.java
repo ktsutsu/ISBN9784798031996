@@ -1,8 +1,11 @@
 package com.tsutsu.isbn9784798031996;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.view.View;
+import android.widget.EditText;
 import android.app.Activity;
-import android.view.Menu;
+import android.app.AlertDialog;
 
 public class MainActivity extends Activity {
 
@@ -12,9 +15,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
+    public void doAction(View view) {
+    	EditText text1 = (EditText)this.findViewById(R.id.editText1);
+    	Editable str = text1.getText();
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setMessage("you typed: " + str);
+    	builder.show();
     }
 }
