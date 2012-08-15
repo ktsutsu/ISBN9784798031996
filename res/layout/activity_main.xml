@@ -19,6 +19,19 @@
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="78dp"
+        android:onClick="doAction"
         android:text="@string/button_label1" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
