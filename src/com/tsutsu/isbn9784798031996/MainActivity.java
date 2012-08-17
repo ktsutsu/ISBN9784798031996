@@ -24,27 +24,33 @@ public class MainActivity extends Activity {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setTitle("Message");
     	builder.setMessage("you typed: " + str);
-    	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    	DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int which) {
-				Toast toast = Toast.makeText(activity, "OK!", Toast.LENGTH_SHORT);
+				String msg = "";
+				switch (which) {
+				case DialogInterface.BUTTON_POSITIVE:
+					msg = "OK!!!!";
+					break;
+
+				case DialogInterface.BUTTON_NEUTRAL:
+					msg = "...?";
+					break;
+
+				case DialogInterface.BUTTON_NEGATIVE:
+					msg = "canceled...";
+					break;
+
+				default:
+					break;
+				}
+				Toast toast = Toast.makeText(activity, msg, Toast.LENGTH_SHORT);
 				toast.show();
 			}
-		});
-    	builder.setNeutralButton("...", new DialogInterface.OnClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which) {
-				Toast toast = Toast.makeText(activity, "...?", Toast.LENGTH_SHORT);
-				toast.show();
-			}
-		});
-    	builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which) {
-				Toast toast = Toast.makeText(activity, "Canceled...", Toast.LENGTH_SHORT);
-				toast.show();
-			}
-		});
-    	builder.show();
+		};
+		builder.setPositiveButton("OK", listener);
+		builder.setNeutralButton("...", listener);
+		builder.setNegativeButton("Cancel", listener);
+		builder.show();
     }
 }
