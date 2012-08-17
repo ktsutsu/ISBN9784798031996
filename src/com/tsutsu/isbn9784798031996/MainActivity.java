@@ -2,10 +2,10 @@ package com.tsutsu.isbn9784798031996;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 
 public class MainActivity extends Activity {
 
@@ -16,39 +16,11 @@ public class MainActivity extends Activity {
     }
 
     public void doAction(View view) {
-    	final Activity activity = this;
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setTitle("Message");
-    	final CharSequence[] items = {"Android", "iPhone", "Windows Phone"};
-    	final boolean[] item_checked = {false, false, false};
-    	builder.setMultiChoiceItems(items, item_checked, new DialogInterface.OnMultiChoiceClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-				item_checked[which] = isChecked;
-				if (isChecked) {
-					Toast toast = Toast.makeText(activity, "you checked: " + which, Toast.LENGTH_SHORT);
-					toast.show();
-				}
-			}
-		});
-    	builder.setNeutralButton("OK!", new DialogInterface.OnClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which) {
-				String msg = "*selected item*";
-				boolean is_checked = false;
-				for (int i = 0; i < items.length; i++) {
-					if (item_checked[i] == true) {
-						is_checked = true;
-						msg += "\n" + items[i];
-					}
-				}
-				if (!is_checked) {
-					msg = "no items selected...";
-				}
-				Toast toast = Toast.makeText(activity, msg, Toast.LENGTH_SHORT);
-				toast.show();
-			}
-		});
-    	builder.show();
+    	DatePicker picker1 = (DatePicker)this.findViewById(R.id.datePicker1);
+    	TimePicker picker2 = (TimePicker)this.findViewById(R.id.timePicker1);
+    	String date = String.format("%1$04d-%2$02d-%3$02d", picker1.getYear(), (picker1.getMonth() + 1), picker1.getDayOfMonth());
+    	String time = String.format("%1$02d:%2$02d", picker2.getCurrentHour(), picker2.getCurrentMinute());
+    	Toast toast = Toast.makeText(this, date + "\n" + time, Toast.LENGTH_SHORT);
+    	toast.show();
     }
 }
