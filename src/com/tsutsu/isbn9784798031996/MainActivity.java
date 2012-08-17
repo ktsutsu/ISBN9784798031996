@@ -2,10 +2,10 @@ package com.tsutsu.isbn9784798031996;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import android.app.Activity;
-import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 
 public class MainActivity extends Activity {
 
@@ -17,15 +17,14 @@ public class MainActivity extends Activity {
 
     public void doAction(View view) {
     	final Activity activity = this;
-    	DatePickerDialog dlog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+    	TimePickerDialog dlog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
 			
-			public void onDateSet(DatePicker view, int year, int monthOfYear,
-					int dayOfMonth) {
-				String msg = String.format("%1$04d-%2$02d-%3$02d", year, (monthOfYear + 1), dayOfMonth);
+			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+				String msg = String.format("%1$02d:%2$02d", hourOfDay, minute);
 				Toast toast = Toast.makeText(activity, msg, Toast.LENGTH_SHORT);
 				toast.show();
 			}
-		}, 2012, 0, 1);
+		}, 0, 0, true);
     	dlog.show();
     }
 }
