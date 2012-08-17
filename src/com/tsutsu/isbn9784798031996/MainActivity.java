@@ -20,10 +20,20 @@ public class MainActivity extends Activity {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setTitle("Message");
     	final CharSequence[] items = {"Android", "iPhone", "Windows Phone"};
-    	builder.setItems(items, new DialogInterface.OnClickListener() {
+    	final int[] sel_item = {0};
+    	builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int which) {
-				Toast toast = Toast.makeText(activity, "You selected: " + items[which], Toast.LENGTH_SHORT);
+				sel_item[0] = which;
+				Toast toast = Toast.makeText(activity, "you selected: " + which, Toast.LENGTH_SHORT);
+				toast.show();
+			}
+		});
+    	builder.setNeutralButton("OK!", new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int which) {
+				String msg = "selected: " + items[sel_item[0]];
+				Toast toast = Toast.makeText(activity, msg, Toast.LENGTH_SHORT);
 				toast.show();
 			}
 		});
