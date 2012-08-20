@@ -13,10 +13,4 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    public void doAction(View view) {
-    	TableRow row1 = (TableRow)this.findViewById(R.id.tableRow1);
-    	Button btn = (Button)row1.getChildAt(1);
-    	btn.setWidth(btn.getWidth() + 25);
-	}
 }
