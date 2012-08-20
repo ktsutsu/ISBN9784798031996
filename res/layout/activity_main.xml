@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:onClick="doAction"
         android:text="@string/button_label1" />
 
 </RelativeLayout>
