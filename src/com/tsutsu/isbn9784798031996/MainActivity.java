@@ -4,41 +4,31 @@ import java.util.*;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.app.Activity;
+import android.widget.Toast;
+import android.app.ListActivity;
 
-public class MainActivity extends Activity {
-	private int counter = 0;
+public class MainActivity extends ListActivity {
 	private ArrayAdapter<String> arrayadapter = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         List<String> arr = new ArrayList<String>();
         arr.add("First item");
+        arr.add("Second item");
+        arr.add("Third item");
         arrayadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
-        final ListView list = (ListView)this.findViewById(R.id.listView1);
-        list.setAdapter(arrayadapter);
+        this.setListAdapter(arrayadapter);
+    }
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				arrayadapter.add("No," + ++counter);
-			}
-		});
-        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				TextView text = (TextView)arg1;
-				arrayadapter.remove((String)text.getText());
-				return true;
-			}
-		});
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+    	TextView text = (TextView)v;
+    	Toast toast = Toast.makeText(this, "you selected: " + position + ": " + text.getText(), Toast.LENGTH_SHORT);
+    	toast.show();
+    	super.onListItemClick(l, v, position, id);
     }
 }
