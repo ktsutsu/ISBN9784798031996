@@ -17,10 +17,15 @@ public class MainActivity extends Activity {
 
     public void doAction(View view) {
     	EditText edit1 = (EditText)this.findViewById(R.id.editText1);
-    	Editable str = edit1.getText();
+    	EditText edit2 = (EditText)this.findViewById(R.id.editText2);
+    	EditText edit3 = (EditText)this.findViewById(R.id.editText3);
+    	Editable name1 = edit1.getText();
+    	Editable name2 = edit2.getText();
+    	Editable age = edit3.getText();
+    	MyData data = new MyData(name1.toString(), name2.toString(), age.toString());
     	Intent intent = new Intent(Intent.ACTION_SEND);
-    	intent.setType("text/plain");
-    	intent.putExtra(Intent.EXTRA_TEXT, str);
+    	intent.setType("application/mydata");
+    	intent.putExtra("MyData", data);
     	this.startActivity(intent);
     }
 }
