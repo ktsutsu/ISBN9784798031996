@@ -1,5 +1,6 @@
 package com.tsutsu.isbn9784798031996;
 
+import android.provider.Settings;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -24,8 +25,15 @@ public class MainActivity extends Activity {
     	PendingIntent pending = PendingIntent.getActivity(this, ACTIVITY_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
     	Notification notify = new Notification();
     	notify.flags = Notification.FLAG_AUTO_CANCEL;
+    	notify.flags += Notification.FLAG_SHOW_LIGHTS;
     	notify.icon = R.drawable.ic_launcher;
     	notify.tickerText = "HelloApp notification!!";
+    	notify.number = 5;
+    	notify.ledARGB = 0xffffff00;
+    	notify.ledOnMS = 300;
+    	notify.ledOffMS = 700;
+    	notify.vibrate = new long[]{200, 200, 800, 200, 800, 200};
+    	notify.sound = Settings.System.DEFAULT_NOTIFICATION_URI;
     	notify.setLatestEventInfo(this, "HelloApp Info", "message: " + s, pending);
     	NotificationManager manager = (NotificationManager)this.getSystemService(Activity.NOTIFICATION_SERVICE);
     	manager.notify(NOTIFY_ID, notify);
