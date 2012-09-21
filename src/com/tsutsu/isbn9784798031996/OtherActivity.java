@@ -13,9 +13,9 @@ public class OtherActivity extends Activity {
 		setContentView(R.layout.other);
 		Intent intent = this.getIntent();
 		if (intent.getAction().equals(Intent.ACTION_SEND)) {
-			Bundle bundle = intent.getExtras();
+			MyData data = (MyData)intent.getSerializableExtra("MyData");
 			TextView text1 = (TextView)this.findViewById(R.id.otherTextView1);
-			text1.setText(bundle.getCharSequence(Intent.EXTRA_TEXT));
+			text1.setText(data.toString());
 		}
 	}
 }
