@@ -8,6 +8,7 @@ import android.widget.*;
 import android.content.*;
 
 public class MainActivity extends Activity {
+	static final int MAINACTIVITY_CODE = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,24 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(Intent.ACTION_SEND);
     	intent.setType("application/mydata");
     	intent.putExtra("MyData", data);
-    	this.startActivity(intent);
+    	this.startActivityForResult(intent, MAINACTIVITY_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+    	if (requestCode == MAINACTIVITY_CODE) {
+			String result = "";
+			try {
+				result = (String)data.getExtras().getCharSequence(Intent.EXTRA_TEXT);
+			} catch (NullPointerException e) {
+				result = e.getMessage();
+			}
+			Toast toast = Toast.makeText(this, result, Toast.LENGTH_SHORT);
+			toast.show();
+		} else {
+			Toast toast = Toast.makeText(this, "no result...", Toast.LENGTH_SHORT);
+			toast.show();
+		}
     }
 }
