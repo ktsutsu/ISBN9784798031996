@@ -24,9 +24,11 @@ public class MyView extends View {
 		super.onDraw(canvas);
 		canvas.drawColor(Color.WHITE);
 		Paint paint = new Paint();
-		paint.setColor(Color.BLUE);
+		paint.setColor(Color.DKGRAY);
 		Rect rect = new Rect(100, 100, 200, 200);
 		canvas.drawRect(rect, paint);
+		paint.setColor(Color.LTGRAY);
+		canvas.drawRect(150, 150, 250, 250, paint);
 	}
 
 }
