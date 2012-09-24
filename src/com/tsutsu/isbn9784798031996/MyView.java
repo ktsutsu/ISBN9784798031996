@@ -25,10 +25,10 @@ public class MyView extends View {
 		canvas.drawColor(Color.WHITE);
 		Paint paint = new Paint();
 		paint.setColor(Color.DKGRAY);
-		Rect rect = new Rect(100, 100, 200, 200);
-		canvas.drawRect(rect, paint);
+		RectF rect = new RectF(50, 100, 200, 200);
+		canvas.drawOval(rect, paint);
 		paint.setColor(Color.LTGRAY);
-		canvas.drawRect(150, 150, 250, 250, paint);
+		canvas.drawCircle(200, 200, 50, paint);
 	}
 
 }
