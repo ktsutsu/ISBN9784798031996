@@ -9,6 +9,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+        tools:context=".MainActivity"
+        android:id="@+id/text1" />
 
+    <com.tsutsu.isbn9784798031996.MyView
+        android:id="@+id/myview1"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
 </RelativeLayout>
