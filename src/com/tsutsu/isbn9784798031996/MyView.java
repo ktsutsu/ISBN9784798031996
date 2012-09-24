@@ -1,7 +1,7 @@
 package com.tsutsu.isbn9784798031996;
 
 import android.content.Context;
-import android.graphics.Canvas;
+import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -9,23 +9,24 @@ public class MyView extends View {
 
 	public MyView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MyView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MyView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
 		super.onDraw(canvas);
+		canvas.drawColor(Color.WHITE);
+		Paint paint = new Paint();
+		paint.setColor(Color.BLUE);
+		Rect rect = new Rect(100, 100, 200, 200);
+		canvas.drawRect(rect, paint);
 	}
 
 }
