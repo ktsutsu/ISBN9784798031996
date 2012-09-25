@@ -25,11 +25,8 @@ public class MyView extends View {
 		canvas.drawColor(Color.WHITE);
 		Paint paint = new Paint();
 		paint.setStrokeWidth(10.0f);
-		paint.setColor(Color.DKGRAY);
-		canvas.drawLine(100, 100, 300, 100, paint);
-		paint.setColor(Color.LTGRAY);
-		float[] arr = new float[]{150, 150, 200, 300, 200, 300, 250, 150, 250, 150, 300, 300};
-		canvas.drawLines(arr, paint);
+		RectF rect = new RectF(100, 100, 300, 200);
+		canvas.drawArc(rect, 0f, 120f, true, paint);
 	}
 
 }
