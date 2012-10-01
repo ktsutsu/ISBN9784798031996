@@ -26,9 +26,11 @@ public class MyView extends View {
 		Paint paint = new Paint();
 		paint.setColor(Color.RED);
 		paint.setStrokeWidth(10);
-		canvas.drawLine(100, 100, 250, 250, paint);
-		paint.setStrokeWidth(30);
-		canvas.drawLine(100, 250, 250, 100, paint);
+		paint.setStyle(Paint.Style.FILL);
+		canvas.drawRect(new Rect(50, 50, 200, 200), paint);
+		paint.setColor(Color.BLUE);
+		paint.setStyle(Paint.Style.STROKE);
+		canvas.drawRect(new Rect(100, 100, 250, 250), paint);
 	}
 
 }
